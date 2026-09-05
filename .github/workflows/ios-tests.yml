@@ -72,7 +72,7 @@ jobs:
     name: Run iOS Tests
     needs: changes
     if: needs.changes.outputs.run == 'true'
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 25
 
     steps:
