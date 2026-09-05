@@ -53,7 +53,7 @@ permissions:
   contents: read
 
 env:
-  XCODE_VERSION: "26.4.1"
+  XCODE_VERSION: "26.6"
   XCODE_PROJECT: TablePro.xcodeproj
   XCODE_SCHEME: TablePro
   TEST_DESTINATION: "platform=macOS"
