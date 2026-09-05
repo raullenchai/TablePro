@@ -23,7 +23,7 @@ permissions:
 jobs:
   lint:
     name: SwiftLint
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 10
 
     steps:
@@ -45,7 +45,7 @@ jobs:
 
   build:
     name: Build ${{ matrix.arch }}
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: ${{ matrix.timeout }}
     strategy:
       # No fail-fast. A failing arch would otherwise cancel its sibling mid-notarization, which is
@@ -164,7 +164,7 @@ jobs:
 
   release:
     name: Create GitHub Release
-    runs-on: macos-26
+    runs-on: manzanita-standard
     needs: [lint, test, build, registry-readiness]
     if: startsWith(github.ref, 'refs/tags/v')
     timeout-minutes: 10

@@ -105,7 +105,7 @@ jobs:
     needs: resolve-tags
     permissions:
       contents: write
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 30
     strategy:
       matrix: ${{ fromJson(needs.resolve-tags.outputs.matrix) }}

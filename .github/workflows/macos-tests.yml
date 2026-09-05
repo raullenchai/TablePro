@@ -53,7 +53,7 @@ permissions:
   contents: read
 
 env:
-  XCODE_VERSION: "26.4.1"
+  XCODE_VERSION: "26.6"
   XCODE_PROJECT: TablePro.xcodeproj
   XCODE_SCHEME: TablePro
   TEST_DESTINATION: "platform=macOS"
@@ -106,7 +106,7 @@ jobs:
     name: Package Tests
     needs: changes
     if: needs.changes.outputs.run == 'true'
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -137,7 +137,7 @@ jobs:
     name: Build for testing
     needs: changes
     if: needs.changes.outputs.run == 'true'
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -279,7 +279,7 @@ jobs:
     name: Unit tests
     needs: [changes, build]
     if: needs.changes.outputs.run == 'true'
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -361,7 +361,7 @@ jobs:
     name: UI tests ${{ matrix.shard }}/${{ matrix.of }}
     needs: [changes, build]
     if: needs.changes.outputs.run == 'true'
-    runs-on: macos-26
+    runs-on: manzanita-standard
     timeout-minutes: 40
     strategy:
       fail-fast: false
